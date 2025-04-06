@@ -6,7 +6,7 @@
   // 선택한 센서 정보
   const sensors = [
     {
-      name: "가속도 센서 & 자이로스코프 센서",
+      name: "가속도 & 자이로 센서",
       shortName: "Accelerometer & Gyroscope",
       description: "움직임과 회전을 감지하는 센서로, MEMS 기술을 기반으로 제작됩니다.",
       applications: [
@@ -45,46 +45,32 @@
   ];
 </script>
 
-<main class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 md:p-8">
+<main class="min-h-screen flex justify-center items-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4 md:p-8">
   <div class="max-w-4xl mx-auto">
     <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
       <div class="bg-[#0364FD] py-6 px-6">
-        <h1 class="text-2xl md:text-3xl font-bold text-white">2025학년도 1학기 컴퓨터의이해 중간과제물</h1>
+        <h1 class="text-2xl md:text-3xl font-bold text-white text-center">2025학년도 1학기 컴퓨터의이해 중간과제물</h1>
       </div>
       
       <div class="p-6">
         <div class="flex flex-col md:flex-row gap-4 mb-8">
           <div class="bg-indigo-50 rounded-lg p-4 flex-1">
             <h2 class="font-semibold text-[#0364FD]">학과</h2>
-            <p class="text-lg text-gray-800">{department}</p>
+            <p class="text-lg text-gray-800 font-semibold">{department}</p>
           </div>
           <div class="bg-indigo-50 rounded-lg p-4 flex-1">
             <h2 class="font-semibold text-[#0364FD]">이름</h2>
-            <p class="text-lg text-gray-800">{name}</p>
+            <p class="text-lg text-gray-800 font-semibold">{name}</p>
           </div>
         </div>
         
         <h2 class="text-xl font-bold text-gray-800 mb-6">선택한 센서 기술</h2>
         
-        <div class="space-y-8">
-          {#each sensors as sensor}
-            <div class="border border-gray-200 rounded-lg overflow-hidden">
-              <div class="bg-gray-50 p-4 border-b border-gray-200">
-                <h3 class="text-lg font-semibold text-gray-800">{sensor.name}</h3>
-                <p class="text-gray-500 text-sm">{sensor.shortName}</p>
-              </div>
-              <div class="p-4">
-                <p class="text-gray-700 mb-4">{sensor.description}</p>
-                
-                <h4 class="font-semibold text-[#0364FD] mb-2">주요 활용 사례</h4>
-                <ul class="list-disc pl-5 mb-4 space-y-1">
-                  {#each sensor.applications as app}
-                    <li class="text-gray-700">{app}</li>
-                  {/each}
-                </ul>
-                
-                <h4 class="font-semibold text-[#0364FD] mb-2">4차 산업혁명 기여</h4>
-                <p class="text-gray-700">{sensor.industryContribution}</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {#each sensors as sensor, i}
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:scale-105">
+              <div class="p-5 flex items-center justify-center h-full">
+                <h3 class="text-center text-lg font-semibold text-gray-800 whitespace-nowrap">{sensor.name}</h3>
               </div>
             </div>
           {/each}
